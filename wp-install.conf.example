@@ -1,0 +1,20 @@
+#Needed for install, connect, and rollback
+LOCAL_MYSQL_USER=example
+LOCAL_MYSQL_PASSWORD=example
+LOCAL_MYSQL_PORT=3306
+
+#Needed for install and connect
+AWS_ACCESS_KEY_ID=MYACCESSKEYID
+AWS_SECRET_ACCESS_KEY=MYSECRETACCESSKEY
+
+#Needed for install and rollback
+GITHUB_USERNAME=MYGITHUBUSERNAME
+
+#Needed for connect
+GITHUB_LOCATION=https://github.com/user/repo
+HEROKU_APP=my-heroku-app-1234
+
+#Entries for MAMP or XAMP mysql and php
+MYSQL_LOCATION=/Path/to/mysql
+MYSQLDUMP_LOCATION=/Path/to/mysqldump
+PHP_LOCATION=/Path/to/php
