@@ -6,7 +6,7 @@ Tools for rapid development of WordPres sites, hosted on GitHub and deployed on 
 Prerequisites
 -------------
 
-While these scripts are intended to mae deploying or connecting to a new WordPress project super fast and easy, they make some assumptions about your local environment.
+While these scripts are intended to make deploying or connecting to a new WordPress project super fast and easy, they make some assumptions about your local environment.
 
 ### Dependencies
 
@@ -31,6 +31,10 @@ If you are using MAMP or XAMP for MySQL or PHP or both, you must specify the loc
 	MYSQL_LOCATION=/Applications/MAMP/Library/bin/mysql
 	MYSQLDUMP_LOCATION=/Applications/MAMP/Library/bin/mysqldump
 	PHP_LOCATION=/Applications/MAMP/bin/php/php5.5.3/bin/php
+
+### Amazon Web Services for Uploads
+
+Normally, WordPress uploads, such as images or videos, would be located on the servers local filesystem in the wp-content/uploads folder. Heroku, however, does not work well with this model because any changes made on the production site will be lost when a new version is pushed. The application must be entirely "stateless". To overcome this obstacle, we use an S3 bucket to store all uploads to the site. For this reason, you will need AWS keys. The scripts take care of getting a set of plugins to make this model work under the hood.
 
 
 wp-install.sh
