@@ -14,13 +14,25 @@ if [ $# -eq 0 ]; then
 else
 	conf=$1
 	githubname=`cat $conf | grep GITHUB_USERNAME | cut -d = -f 2`
-	mysqluname=`cat $conf | grep LOCAL_MYSQL_USER | cut -d = -f 2`
-	mysqlpwd=`cat $conf | grep LOCAL_MYSQL_PASSWORD | cut -d = -f 2`
-	mysqlport=`cat $conf | grep LOCAL_MYSQL_PORT | cut -d = -f 2`
-	mysql=`cat $conf | grep MYSQL_LOCATION | cut -d = -f 2`
-	if [ ${#mysql} -eq 0 ]; then
-		mysql=mysql
+	if [ ${#githubname} -eq 0 ]; then
+		read -p "What is your github username?" githubname
 	fi
+	mysqluname=`cat $conf | grep LOCAL_MYSQL_USER | cut -d = -f 2`
+	if [ ${#mysqluname} -eq 0 ]; then
+		read -p "What is your local MySql Username?" mysqluname
+	fi
+	mysqlpwd=`cat $conf | grep LOCAL_MYSQL_PASSWORD | cut -d = -f 2`
+	if [ ${#mysqlpwd} -eq 0 ]; then
+		read -p "What is your local MySql Password?" mysqlpwd
+	fi
+	mysqlport=`cat $conf | grep LOCAL_MYSQL_PORT | cut -d = -f 2`
+	if [ ${#mysqlpwd} -eq 0 ]; then
+		read -p "What port does MySql listen on locally?" mysqlport
+	fi
+	mysql=`cat $conf | grep MYSQL_LOCATION | cut -d = -f 2`
+fi
+if [ ${#mysql} -eq 0 ]; then
+	mysql=mysql
 fi
 
 #Delete local MySQL DB

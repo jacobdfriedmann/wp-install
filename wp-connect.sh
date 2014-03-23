@@ -16,12 +16,33 @@ if [ $# -eq 0 ]; then
 else
 	conf=$1
 	mysqluname=`cat $conf | grep LOCAL_MYSQL_USER | cut -d = -f 2`
+	if [ ${#mysqluname} -eq 0 ]; then
+		read -p "What is your local MySql Username?" mysqluname
+	fi
 	mysqlpwd=`cat $conf | grep LOCAL_MYSQL_PASSWORD | cut -d = -f 2`
+	if [ ${#mysqlpwd} -eq 0 ]; then
+		read -p "What is your local MySql Password?" mysqlpwd
+	fi
 	mysqlport=`cat $conf | grep LOCAL_MYSQL_PORT | cut -d = -f 2`
+	if [ ${#mysqlpwd} -eq 0 ]; then
+		read -p "What port does MySql listen on locally?" mysqlport
+	fi
 	awskey=`cat $conf | grep AWS_ACCESS_KEY_ID | cut -d = -f 2`
+	if [ ${#awskey} -eq 0 ]; then
+		read -p "What is your AWS access key id?" awskey
+	fi
 	awssecret=`cat $conf | grep AWS_SECRET_ACCESS_KEY | cut -d = -f 2`
+	if [ ${#awssecret} -eq 0 ]; then
+		read -p "What is your AWS secret access key?" awssecret
+	fi
 	githubloc=`cat $conf | grep GITHUB_LOCATION | cut -d = -f 2`
+	if [ ${#githubloc} -eq 0 ]; then
+		read -p "Where is the GitHub repository located" githubloc
+	fi
 	herokuapp=`cat $conf | grep HEROKU_APP | cut -d = -f 2`
+	if [ ${#herokuapp} -eq 0 ]; then
+		read -p "What is the name of the Heroku app?" herokuapp
+	fi
 	mysql=`cat $conf | grep MYSQL_LOCATION | cut -d = -f 2`
 	mysqldump=`cat $conf | grep MYSQLDUMP_LOCATION | cut -d = -f 2`
 	php=`cat $conf | grep PHP_LOCATION | cut -d = -f 2`

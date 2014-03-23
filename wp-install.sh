@@ -16,19 +16,38 @@ if [ $# -eq 0 ]; then
 else
 	conf=$1
 	mysqluname=`cat $conf | grep LOCAL_MYSQL_USER | cut -d = -f 2`
+	if [ ${#mysqluname} -eq 0 ]; then
+		read -p "What is your local MySql Username?" mysqluname
+	fi
 	mysqlpwd=`cat $conf | grep LOCAL_MYSQL_PASSWORD | cut -d = -f 2`
+	if [ ${#mysqlpwd} -eq 0 ]; then
+		read -p "What is your local MySql Password?" mysqlpwd
+	fi
 	mysqlport=`cat $conf | grep LOCAL_MYSQL_PORT | cut -d = -f 2`
+	if [ ${#mysqlpwd} -eq 0 ]; then
+		read -p "What port does MySql listen on locally?" mysqlport
+	fi
 	awskey=`cat $conf | grep AWS_ACCESS_KEY_ID | cut -d = -f 2`
+	if [ ${#awskey} -eq 0 ]; then
+		read -p "What is your AWS access key id?" awskey
+	fi
 	awssecret=`cat $conf | grep AWS_SECRET_ACCESS_KEY | cut -d = -f 2`
+	if [ ${#awssecret} -eq 0 ]; then
+		read -p "What is your AWS secret access key?" awssecret
+	fi
 	ghubname=`cat $conf | grep GITHUB_USERNAME | cut -d = -f 2`
+	if [ ${#ghubname} -eq 0 ]; then
+		read -p "What is your GitHub username?" ghubname
+	fi
 	mysql=`cat $conf | grep MYSQL_LOCATION | cut -d = -f 2`
 	php=`cat $conf | grep PHP_LOCATION | cut -d = -f 2`
-	if [ ${#mysql} -eq 0 ]; then
-		mysql=mysql
-	fi
-	if [ ${#php} -eq 0 ]; then
-		php=php
-	fi
+fi
+
+if [ ${#mysql} -eq 0 ]; then
+	mysql=mysql
+fi
+if [ ${#php} -eq 0 ]; then
+	php=php
 fi
 
 #Make Project Directory
