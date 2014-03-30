@@ -13,6 +13,7 @@ While these scripts are intended to make deploying or connecting to a new WordPr
 - <b>Heroku toolbelt</b>: https://toolbelt.heroku.com/
 - <b>MySQL</b>: http://dev.mysql.com/downloads/mysql/ (or MAMP or XAMP)
 - <b>PHP</b>: Installed on most OS's (or use MAMP or XAMP)
+- <b>Apache</b>: Installed on most OS's (or use MAMP or XAMP)
 - <b>curl</b>: Installed on many OS's (http://curl.haxx.se/download.html)
 - <b>git</b>: Installed on some OS's (http://git-scm.com/downloads)
 
@@ -26,11 +27,11 @@ Shell scripts will have to be chmod-ed in order to be run:
 
 ### Note on using MAMP or XAMP
 
-If you are using MAMP or XAMP for MySQL or PHP or both, you must specify the location of the command in the wp-install.conf file. For example, the default location of the mysql command in MAMP is /Applications/MAMP/Library/bin/mysql. Here is an example conf excerpt for MAMP:
+If you are using MAMP or XAMP for MySQL or Apache or both, you must specify the location of the command in the wp-install.conf file. For example, the default location of the mysql command in MAMP is /Applications/MAMP/Library/bin/mysql. Here is an example conf excerpt for MAMP:
 
 	MYSQL_LOCATION=/Applications/MAMP/Library/bin/mysql
 	MYSQLDUMP_LOCATION=/Applications/MAMP/Library/bin/mysqldump
-	PHP_LOCATION=/Applications/MAMP/bin/php/php5.5.3/bin/php
+	HTTPD_LOCATION=/Applications/MAMP/Library/bin/httpd
 
 ### Amazon Web Services for Uploads
 

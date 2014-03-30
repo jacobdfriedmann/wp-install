@@ -17,4 +17,4 @@ HEROKU_APP=my-heroku-app-1234
 #Entries for MAMP or XAMP mysql and php
 MYSQL_LOCATION=/Path/to/mysql
 MYSQLDUMP_LOCATION=/Path/to/mysqldump
-PHP_LOCATION=/Path/to/php
+HTTPD_LOCATION=/Path/to/httpd
