@@ -70,15 +70,9 @@ git remote add heroku git@heroku.com:$herokuapp.git
 $mysql --host=localhost -u $mysqluname -p$mysqlpwd -e "CREATE DATABASE \`$project\`;"
 databaseurl="mysql://$mysqluname:$mysqlpwd@127.0.0.1:$mysqlport/$project"
 
-#Make Procfile and .gitignore
+#Make Procfile
 touch Procfile
-touch .gitignore
 echo "web: ./boot.sh" > Procfile
-echo "Procfile" > .gitignore
-echo ".env" >> .gitignore
-echo "boot.sh" >> .gitignore
-echo "httpd*" >> .gitignore
-echo "logs" >> .gitignore
 
 #Get Random Salts for config
 curl https://api.wordpress.org/secret-key/1.1/salt/ > salt.txt
